@@ -7,27 +7,6 @@
 
 import SwiftUI
 
-struct MCircle {
-    let center: CGPoint
-    let radius: CGFloat
-    
-    static var zero: MCircle {
-        MCircle(center: .zero, radius: .zero)
-    }
-    
-    func nearestPoint(to point: CGPoint) -> CGPoint {
-        // vector from center to point
-        let vx = point.x - center.x
-        let vy = point.y - center.y
-        // magnitude of vector
-        let mag = sqrt(vx*vx + vy*vy)
-        // normalize vector, multiply it by radius and offset it from the center
-        let ax = center.x + vx / mag * radius
-        let ay = center.y + vy / mag * radius
-        return CGPoint(x: ax, y: ay)
-    }
-}
-
 /// Won't work properly if not displayed with a square aspect ratio
 struct WheelShape: Shape {
     let thickness: CGFloat = 100
@@ -39,14 +18,6 @@ struct WheelShape: Shape {
             let innerRect = rect.insetBy(dx: thickness, dy: thickness)
             path.addEllipse(in: innerRect)
         }
-    }
-}
-
-struct PointShape: Shape {
-    let point: CGPoint
-    
-    func path(in rect: CGRect) -> Path {
-        Path(ellipseIn: CGRect(x: point.x, y: point.y, width: 10, height: 10))
     }
 }
 
@@ -84,27 +55,6 @@ struct WheelView: View {
         let dragPoint = dragValue.location
         let nearestPoint = mCircle.nearestPoint(to: dragPoint)
         adjustedPoint = nearestPoint
-    }
-}
-
-extension CGRect {
-    var center: CGPoint {
-        CGPoint(x: self.midX, y: self.midY)
-    }
-    
-    var squareRect: CGRect {
-        let shortestSide = width > height ? height : width
-        let size = CGSize(width: shortestSide, height: shortestSide)
-        
-        // if the rect is wider than tall:
-        // move the x in by half of the leftover space
-        let widthDifference = width - size.width
-        let heightDifference = height - size.height
-        let xOffset = widthDifference / 2
-        let yOffset = heightDifference / 2
-        let origin = CGPoint(x: xOffset, y: yOffset)
-        
-        return CGRect(origin: origin, size: size)
     }
 }
 
