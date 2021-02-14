@@ -23,9 +23,12 @@ struct WheelShape: Shape {
 
 struct WheelView: View {
     
+    let tick: (Int) -> ()
     let thickness: CGFloat = 100
+    let angleForTick = Angle(radians: Double.pi/8)
     @State var point: CGPoint = .zero
     @State var adjustedPoint: CGPoint = .zero
+    @State var startPoint: CGPoint = .zero
 
     var body: some View {
         GeometryReader { geometry in
@@ -48,6 +51,9 @@ struct WheelView: View {
     }
     
     func dragUpdated(geometry: GeometryProxy, dragValue: DragGesture.Value) {
+        if startPoint == .zero {
+            startPoint = dragValue.startLocation
+        }
         point = dragValue.location
         let frame = geometry.frame(in: .local)
         let squaredFrame = frame.squareRect
@@ -56,13 +62,18 @@ struct WheelView: View {
         let nearestPoint = mCircle.nearestPoint(to: dragPoint)
         adjustedPoint = nearestPoint
         
-        let start = mCircle.nearestPoint(to: dragValue.startLocation)
+        let start = mCircle.nearestPoint(to: startPoint)
         let end = mCircle.nearestPoint(to: dragValue.location)
         let startR = mCircle.radians(to: start)
         let endR = mCircle.radians(to: end)
         // https://stackoverflow.com/a/2007279
         let signedDiff = atan2(sin(endR.radians - startR.radians), cos(endR.radians - startR.radians))
-        print("start: \(startR), end: \(endR), diff: \(signedDiff)")
+        if fabs(fabs(signedDiff) - angleForTick.radians) < 0.1 {
+            let sign = signedDiff > 0 ? -1 : 1
+            tick(sign)
+            // TODO: should adjust by the remainder
+            startPoint = dragValue.location
+        }
     }
 }
 
