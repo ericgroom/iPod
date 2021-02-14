@@ -14,15 +14,11 @@ struct ContentView: View {
         VStack {
             Text(locationText)
                 .padding()
-            Circle()
+            WheelShape()
                 .foregroundColor(.gray)
-                .frame(width: 300, height: 300, alignment: .center)
-                .gesture(
-                    DragGesture(minimumDistance: 10.0, coordinateSpace: .local)
-                        .onChanged { value in
-                            self.location = value.location
-                        }
-                )
+                .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local).onChanged { value in
+                    self.location = value.location
+                })
         }
     }
     
