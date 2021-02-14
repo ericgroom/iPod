@@ -28,19 +28,19 @@ struct WheelShape: Shape {
 struct WheelView: View {
     
     enum UserInput {
+        case centerButton
         case drag(DragDirection)
     }
     enum DragDirection { case clockwise, counterClockwise }
     
     let userInput: (UserInput) -> ()
-    let thickness: CGFloat = 100
+    let thickness: CGFloat = 80
     private let angleForTick = Angle(radians: Double.pi/8)
     @State private var startPoint: CGPoint?
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Color(.lightGray)
                 WheelShape(thickness: thickness)
                     .gesture(
                         DragGesture(minimumDistance: 10.0, coordinateSpace: .local)
@@ -51,6 +51,7 @@ struct WheelView: View {
                                 dragEnded()
                             }
                     )
+                circleButton(for: geometry)
             }
         }
         .aspectRatio(1.0, contentMode: .fit)
@@ -86,6 +87,17 @@ struct WheelView: View {
         let frame = geometry.frame(in: .local)
         let squaredFrame = frame.squareRect
         return MCircle(center: squaredFrame.center, radius: (squaredFrame.width / 2) - (thickness / 2))
+    }
+    
+    private func circleButton(for geometry: GeometryProxy) -> some View {
+        let squareRect = geometry.frame(in: .local).squareRect
+        let inset = squareRect.insetBy(dx: thickness, dy: thickness)
+        
+        return Button(action: { userInput(.centerButton) }, label: {
+            Color(white: 0.8)
+                .frame(width: inset.width, height: inset.height, alignment: .center)
+                .clipShape(Circle())
+        })
     }
 }
 
