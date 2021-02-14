@@ -8,15 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var increment: Int = 0
+    @State var value: Int = 0
     
     var body: some View {
         VStack {
-            Text("\(increment)")
+            Text("\(value)")
                 .padding()
-            WheelView(tick: { increment += $0 } )
+            WheelView(userInput: self.userInputReceived(_:))
                 .foregroundColor(.gray)
         }
+    }
+    
+    func userInputReceived(_ dragDirection: WheelView.DragDirection) {
+        let increment: Int
+        switch dragDirection {
+        case .clockwise:
+            increment = 1
+        case .counterClockwise:
+            increment = -1
+        }
+        value += increment
     }
 }
 

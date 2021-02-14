@@ -9,7 +9,11 @@ import SwiftUI
 
 /// Won't work properly if not displayed with a square aspect ratio
 struct WheelShape: Shape {
-    let thickness: CGFloat = 100
+    let thickness: CGFloat
+    
+    init(thickness: CGFloat) {
+        self.thickness = thickness
+    }
     
     func path(in rect: CGRect) -> Path {
         Path { path in
@@ -23,7 +27,9 @@ struct WheelShape: Shape {
 
 struct WheelView: View {
     
-    let tick: (Int) -> ()
+    enum DragDirection { case clockwise, counterClockwise }
+    
+    let userInput: (DragDirection) -> ()
     let thickness: CGFloat = 100
     let angleForTick = Angle(radians: Double.pi/8)
     @State var point: CGPoint = .zero
@@ -34,7 +40,7 @@ struct WheelView: View {
         GeometryReader { geometry in
             ZStack {
                 Color(.lightGray)
-                WheelShape()
+                WheelShape(thickness: thickness)
                     .gesture(
                         DragGesture(minimumDistance: 10.0, coordinateSpace: .local)
                             .onChanged { dragValue in
@@ -71,8 +77,8 @@ struct WheelView: View {
         // https://stackoverflow.com/a/2007279
         let signedDiff = atan2(sin(endR.radians - startR.radians), cos(endR.radians - startR.radians))
         if fabs(fabs(signedDiff) - angleForTick.radians) < 0.1 {
-            let sign = signedDiff > 0 ? -1 : 1
-            tick(sign)
+            let direction: DragDirection = signedDiff > 0 ? .counterClockwise : .clockwise
+            userInput(direction)
             // TODO: should adjust by the remainder
             self.startPoint = dragValue.location
         }
@@ -85,7 +91,7 @@ struct WheelView: View {
 
 struct WheelShape_Previews: PreviewProvider {
     static var previews: some View {
-        WheelShape()
+        WheelShape(thickness: 100)
             .foregroundColor(.red)
     }
 }
