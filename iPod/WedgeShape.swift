@@ -25,23 +25,19 @@ struct WedgeShape: Shape {
 }
 
 struct WedgeShape_Previews: PreviewProvider {
-    static let quarter = Angle(radians: Double.pi/2)
-    static let half = Angle(radians: Double.pi)
-    static let eighth = Angle(radians: Double.pi/4)
-    
     static var previews: some View {
         ZStack {
             WedgeShape(
-                startAngle: Angle.zero - eighth,
-                endAngle: -half + eighth,
+                startAngle: Angle.zero - Angle.eighth,
+                endAngle: -Angle.half + Angle.eighth,
                 thickness: 100,
                 clockwise: false
             )
                 .frame(width: 300, height: 300, alignment: .center)
                 .foregroundColor(.green)
             WedgeShape(
-                startAngle: -half + eighth,
-                endAngle: -half - eighth,
+                startAngle: -Angle.half + Angle.eighth,
+                endAngle: -Angle.half - Angle.eighth,
                 thickness: 100,
                 clockwise: false
             )
