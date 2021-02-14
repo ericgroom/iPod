@@ -8,24 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var location: CGPoint?
-    
     var body: some View {
         VStack {
-            Text(locationText)
-                .padding()
-            WheelShape()
+            WheelView()
                 .foregroundColor(.gray)
-                .gesture(DragGesture(minimumDistance: 10, coordinateSpace: .local).onChanged { value in
-                    self.location = value.location
-                })
         }
-    }
-    
-    var locationText: String {
-        location.map { point in
-            "\(point.x), \(point.y)"
-        } ?? "none"
     }
 }
 
