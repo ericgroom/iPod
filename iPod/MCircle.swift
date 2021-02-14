@@ -28,5 +28,12 @@ struct MCircle {
         let ay = center.y + vy / mag * radius
         return CGPoint(x: ax, y: ay)
     }
+    
+    func radians(to point: CGPoint) -> Angle {
+        let negPiToPi = atan2(point.y - center.y, point.x - center.x)
+        let radiansInversed = negPiToPi < 0 ? negPiToPi + 2*CGFloat.pi : negPiToPi
+        let radians = 2*CGFloat.pi - radiansInversed
+        return Angle(radians: Double(radians))
+    }
 }
 

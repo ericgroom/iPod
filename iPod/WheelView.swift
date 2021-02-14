@@ -26,7 +26,7 @@ struct WheelView: View {
     let thickness: CGFloat = 100
     @State var point: CGPoint = .zero
     @State var adjustedPoint: CGPoint = .zero
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -55,6 +55,14 @@ struct WheelView: View {
         let dragPoint = dragValue.location
         let nearestPoint = mCircle.nearestPoint(to: dragPoint)
         adjustedPoint = nearestPoint
+        
+        let start = mCircle.nearestPoint(to: dragValue.startLocation)
+        let end = mCircle.nearestPoint(to: dragValue.location)
+        let startR = mCircle.radians(to: start)
+        let endR = mCircle.radians(to: end)
+        // https://stackoverflow.com/a/2007279
+        let signedDiff = atan2(sin(endR.radians - startR.radians), cos(endR.radians - startR.radians))
+        print("start: \(startR), end: \(endR), diff: \(signedDiff)")
     }
 }
 
