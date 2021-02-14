@@ -31,10 +31,10 @@ struct WheelView: View {
     
     let userInput: (DragDirection) -> ()
     let thickness: CGFloat = 100
-    let angleForTick = Angle(radians: Double.pi/8)
-    @State var point: CGPoint = .zero
-    @State var adjustedPoint: CGPoint = .zero
-    @State var startPoint: CGPoint?
+    private let angleForTick = Angle(radians: Double.pi/8)
+    @State private var point: CGPoint = .zero
+    @State private var adjustedPoint: CGPoint = .zero
+    @State private var startPoint: CGPoint?
 
     var body: some View {
         GeometryReader { geometry in
@@ -59,7 +59,7 @@ struct WheelView: View {
         .aspectRatio(1.0, contentMode: .fit)
     }
     
-    func dragUpdated(geometry: GeometryProxy, dragValue: DragGesture.Value) {
+    private func dragUpdated(geometry: GeometryProxy, dragValue: DragGesture.Value) {
         let startPoint = self.startPoint ?? dragValue.startLocation
         self.startPoint = startPoint
         point = dragValue.location
@@ -84,14 +84,13 @@ struct WheelView: View {
         }
     }
     
-    func dragEnded() {
+    private func dragEnded() {
         startPoint = nil
     }
 }
 
-struct WheelShape_Previews: PreviewProvider {
+struct WheelView_Previews: PreviewProvider {
     static var previews: some View {
-        WheelShape(thickness: 100)
-            .foregroundColor(.red)
+        WheelView(userInput: { _ in })
     }
 }
