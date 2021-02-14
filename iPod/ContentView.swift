@@ -19,15 +19,18 @@ struct ContentView: View {
         }
     }
     
-    func userInputReceived(_ dragDirection: WheelView.DragDirection) {
-        let increment: Int
-        switch dragDirection {
-        case .clockwise:
-            increment = 1
-        case .counterClockwise:
-            increment = -1
+    func userInputReceived(_ userInput: WheelView.UserInput) {
+        switch userInput {
+        case .drag(let direction):
+            let increment: Int
+            switch direction {
+            case .clockwise:
+                increment = 1
+            case .counterClockwise:
+                increment = -1
+            }
+            value += increment
         }
-        value += increment
     }
 }
 

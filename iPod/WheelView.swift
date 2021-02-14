@@ -27,13 +27,14 @@ struct WheelShape: Shape {
 
 struct WheelView: View {
     
+    enum UserInput {
+        case drag(DragDirection)
+    }
     enum DragDirection { case clockwise, counterClockwise }
     
-    let userInput: (DragDirection) -> ()
+    let userInput: (UserInput) -> ()
     let thickness: CGFloat = 100
     private let angleForTick = Angle(radians: Double.pi/8)
-    @State private var point: CGPoint = .zero
-    @State private var adjustedPoint: CGPoint = .zero
     @State private var startPoint: CGPoint?
 
     var body: some View {
@@ -50,10 +51,6 @@ struct WheelView: View {
                                 dragEnded()
                             }
                     )
-                PointShape(point: point)
-                    .foregroundColor(.red)
-                PointShape(point: adjustedPoint)
-                    .foregroundColor(.blue)
             }
         }
         .aspectRatio(1.0, contentMode: .fit)
@@ -62,23 +59,20 @@ struct WheelView: View {
     private func dragUpdated(geometry: GeometryProxy, dragValue: DragGesture.Value) {
         let startPoint = self.startPoint ?? dragValue.startLocation
         self.startPoint = startPoint
-        point = dragValue.location
-        let frame = geometry.frame(in: .local)
-        let squaredFrame = frame.squareRect
-        let mCircle = MCircle(center: squaredFrame.center, radius: (squaredFrame.width / 2) - (thickness / 2))
-        let dragPoint = dragValue.location
-        let nearestPoint = mCircle.nearestPoint(to: dragPoint)
-        adjustedPoint = nearestPoint
+        
+        let mCircle = circle(for: geometry)
         
         let start = mCircle.nearestPoint(to: startPoint)
         let end = mCircle.nearestPoint(to: dragValue.location)
         let startR = mCircle.radians(to: start)
         let endR = mCircle.radians(to: end)
+        
         // https://stackoverflow.com/a/2007279
         let signedDiff = atan2(sin(endR.radians - startR.radians), cos(endR.radians - startR.radians))
+        
         if fabs(fabs(signedDiff) - angleForTick.radians) < 0.1 {
             let direction: DragDirection = signedDiff > 0 ? .counterClockwise : .clockwise
-            userInput(direction)
+            userInput(.drag(direction))
             // TODO: should adjust by the remainder
             self.startPoint = dragValue.location
         }
@@ -86,6 +80,12 @@ struct WheelView: View {
     
     private func dragEnded() {
         startPoint = nil
+    }
+    
+    private func circle(for geometry: GeometryProxy) -> MCircle {
+        let frame = geometry.frame(in: .local)
+        let squaredFrame = frame.squareRect
+        return MCircle(center: squaredFrame.center, radius: (squaredFrame.width / 2) - (thickness / 2))
     }
 }
 
