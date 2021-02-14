@@ -28,6 +28,10 @@ struct WheelShape: Shape {
 struct WheelView: View {
     
     enum UserInput {
+        case menu
+        case pause
+        case skip
+        case back
         case centerButton
         case drag(DragDirection)
     }
@@ -54,25 +58,25 @@ struct WheelView: View {
             ZStack {
                 WheelShape(thickness: thickness)
                     .coordinateSpace(name: wheelCoordSpace)
-                    .foregroundColor(.gray)
-                WedgeButton(edge: .top, thickness: thickness, action: {}) {
+                WedgeButton(edge: .top, thickness: thickness, action: { userInput(.menu) }) {
                     Text("Menu")
                 }
                     .highPriorityGesture(drag)
-                WedgeButton(edge: .right, thickness: thickness, action: {}) {
+                WedgeButton(edge: .right, thickness: thickness, action: { userInput(.skip) }) {
                     Text("Skip")
                 }
                     .highPriorityGesture(drag)
-                WedgeButton(edge: .bottom, thickness: thickness, action: {}) {
+                WedgeButton(edge: .bottom, thickness: thickness, action: { userInput(.pause) }) {
                     Text("Pause")
                 }
                     .highPriorityGesture(drag)
-                WedgeButton(edge: .left, thickness: thickness, action: {}) {
+                WedgeButton(edge: .left, thickness: thickness, action: { userInput(.back) }) {
                     Text("Back")
                 }
                     .highPriorityGesture(drag)
                 circleButton(for: geometry)
             }
+                .foregroundColor(.gray)
         }
         .aspectRatio(1.0, contentMode: .fit)
     }

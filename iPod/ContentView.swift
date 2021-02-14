@@ -37,6 +37,8 @@ struct ContentView: View {
             value += increment
         case .centerButton:
             value = 0
+        default:
+            break
         }
     }
 }
