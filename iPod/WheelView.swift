@@ -28,7 +28,7 @@ struct WheelView: View {
     let angleForTick = Angle(radians: Double.pi/8)
     @State var point: CGPoint = .zero
     @State var adjustedPoint: CGPoint = .zero
-    @State var startPoint: CGPoint = .zero
+    @State var startPoint: CGPoint?
 
     var body: some View {
         GeometryReader { geometry in
@@ -39,6 +39,9 @@ struct WheelView: View {
                         DragGesture(minimumDistance: 10.0, coordinateSpace: .local)
                             .onChanged { dragValue in
                                 dragUpdated(geometry: geometry, dragValue: dragValue)
+                            }
+                            .onEnded { _ in
+                                dragEnded()
                             }
                     )
                 PointShape(point: point)
@@ -51,9 +54,8 @@ struct WheelView: View {
     }
     
     func dragUpdated(geometry: GeometryProxy, dragValue: DragGesture.Value) {
-        if startPoint == .zero {
-            startPoint = dragValue.startLocation
-        }
+        let startPoint = self.startPoint ?? dragValue.startLocation
+        self.startPoint = startPoint
         point = dragValue.location
         let frame = geometry.frame(in: .local)
         let squaredFrame = frame.squareRect
@@ -72,8 +74,12 @@ struct WheelView: View {
             let sign = signedDiff > 0 ? -1 : 1
             tick(sign)
             // TODO: should adjust by the remainder
-            startPoint = dragValue.location
+            self.startPoint = dragValue.location
         }
+    }
+    
+    func dragEnded() {
+        startPoint = nil
     }
 }
 
