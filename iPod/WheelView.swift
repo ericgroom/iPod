@@ -38,19 +38,25 @@ struct WheelView: View {
     private let angleForTick = Angle(radians: Double.pi/8)
     @State private var startPoint: CGPoint?
 
+    private let wheelCoordSpace = "wheelSpace"
+
     var body: some View {
         GeometryReader { geometry in
+            
+            let drag = DragGesture(minimumDistance: 5.0, coordinateSpace: .named(wheelCoordSpace))
+                .onChanged { dragValue in
+                    dragUpdated(geometry: geometry, dragValue: dragValue)
+                }
+                .onEnded { dragValue in
+                    dragEnded(dragValue)
+                }
+            
             ZStack {
                 WheelShape(thickness: thickness)
-                    .gesture(
-                        DragGesture(minimumDistance: 10.0, coordinateSpace: .local)
-                            .onChanged { dragValue in
-                                dragUpdated(geometry: geometry, dragValue: dragValue)
-                            }
-                            .onEnded { _ in
-                                dragEnded()
-                            }
-                    )
+                    .coordinateSpace(name: wheelCoordSpace)
+                    .foregroundColor(.gray)
+                WedgeButton(edge: .top, thickness: thickness)
+                    .highPriorityGesture(drag)
                 circleButton(for: geometry)
             }
         }
@@ -79,7 +85,7 @@ struct WheelView: View {
         }
     }
     
-    private func dragEnded() {
+    private func dragEnded(_ dragValue: DragGesture.Value) {
         startPoint = nil
     }
     
@@ -98,6 +104,63 @@ struct WheelView: View {
                 .frame(width: inset.width, height: inset.height, alignment: .center)
                 .clipShape(Circle())
         })
+    }
+}
+
+struct WedgeButton: View {
+    let edge: Edge
+    let thickness: CGFloat
+    
+    var body: some View {
+        Button(action: {print("hi")}, label: {
+            ZStack(alignment: .top) {
+                wedge
+                    .foregroundColor(.blue)
+                Text("Menu")
+                    .offset(edge.offset)
+                    .foregroundColor(.black)
+            }
+            .contentShape(wedge)
+        })
+    }
+    
+    private var wedge: some Shape {
+        WedgeShape(startAngle: edge.startAngle, endAngle: edge.endAngle, thickness: thickness, clockwise: false)
+    }
+    
+    enum Edge {
+        case top, left, right, bottom
+        
+        private static let quarter = Angle(radians: Double.pi/2)
+        private static let half = Angle(radians: Double.pi)
+        private static let eighth = Angle(radians: Double.pi/4)
+        
+        var startAngle: Angle {
+            switch self {
+            case .top:
+                return Angle.zero - Self.eighth
+            default:
+                fatalError("todo")
+            }
+        }
+        
+        var endAngle: Angle {
+            switch self {
+            case .top:
+                return -Self.half + Self.eighth
+            default:
+                fatalError("todo")
+            }
+        }
+        
+        var offset: CGSize {
+            switch self {
+            case .top:
+                return CGSize(width: 0, height: 10)
+            default:
+                fatalError("todo")
+            }
+        }
     }
 }
 

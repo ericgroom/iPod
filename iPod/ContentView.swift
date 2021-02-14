@@ -19,7 +19,6 @@ struct ContentView: View {
                 .padding()
                 .lineLimit(1)
             WheelView(userInput: self.userInputReceived(_:))
-                .foregroundColor(.gray)
                 .padding(80)
         }
     }
