@@ -18,8 +18,9 @@ struct ContentView: View {
             Text("Last event: \(lastEvent)")
                 .padding()
                 .lineLimit(1)
+            Spacer()
             WheelView(userInput: self.userInputReceived(_:))
-                .padding(80)
+                .padding(60)
         }
     }
     
