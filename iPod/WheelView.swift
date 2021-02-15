@@ -77,7 +77,7 @@ struct WheelView: View {
                     .highPriorityGesture(drag)
                 circleButton(for: geometry)
             }
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
         }
         .aspectRatio(1.0, contentMode: .fit)
     }
@@ -119,7 +119,7 @@ struct WheelView: View {
         let inset = squareRect.insetBy(dx: thickness, dy: thickness)
         
         return Button(action: { userInput(.centerButton) }, label: {
-            Color(white: 0.8)
+            Color(red: 141.0 / 255.0, green: 217.0 / 255.0, blue: 196.0 / 255.0)
                 .frame(width: inset.width, height: inset.height, alignment: .center)
                 .clipShape(Circle())
         })
@@ -144,7 +144,7 @@ struct WedgeButton<Content: View>: View {
                 }
                 content()
                     .offset(edge.offset)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(red: 141.0 / 255.0, green: 217.0 / 255.0, blue: 196.0 / 255.0))
             }
         })
         .contentShape(wedge)

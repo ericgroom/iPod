@@ -17,6 +17,7 @@
 		BA8A6EEC25D9B58600794D74 /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */; };
 		BA8A6EF525D9D00700794D74 /* WedgeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EF425D9D00700794D74 /* WedgeShape.swift */; };
 		BA8A6EFD25D9ECAE00794D74 /* Angle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */; };
+		BA8A6F0125DAEF6F00794D74 /* iPodChassisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		BA8A6EF425D9D00700794D74 /* WedgeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WedgeShape.swift; sourceTree = "<group>"; };
 		BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+Extensions.swift"; sourceTree = "<group>"; };
+		BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPodChassisView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +73,11 @@
 				BA8A6EE825D9B56600794D74 /* PointShape.swift */,
 				BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */,
 				BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */,
+				BA8A6EF425D9D00700794D74 /* WedgeShape.swift */,
+				BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */,
 				BA8A6ED125D99DDC00794D74 /* Assets.xcassets */,
 				BA8A6ED625D99DDC00794D74 /* Info.plist */,
 				BA8A6ED325D99DDC00794D74 /* Preview Content */,
-				BA8A6EF425D9D00700794D74 /* WedgeShape.swift */,
 			);
 			path = iPod;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				BA8A6ED025D99DDC00794D74 /* ContentView.swift in Sources */,
 				BA8A6EEC25D9B58600794D74 /* CGRect+Extensions.swift in Sources */,
 				BA8A6ECE25D99DDC00794D74 /* iPodApp.swift in Sources */,
+				BA8A6F0125DAEF6F00794D74 /* iPodChassisView.swift in Sources */,
 				BA8A6EFD25D9ECAE00794D74 /* Angle+Extensions.swift in Sources */,
 				BA8A6EE925D9B56600794D74 /* PointShape.swift in Sources */,
 				BA8A6EDE25D9A00500794D74 /* WheelView.swift in Sources */,

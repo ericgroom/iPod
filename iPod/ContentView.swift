@@ -12,15 +12,14 @@ struct ContentView: View {
     @State var lastEvent: String = "none"
     
     var body: some View {
-        VStack {
-            Text("\(value)")
-                .padding()
-            Text("Last event: \(lastEvent)")
-                .padding()
-                .lineLimit(1)
-            Spacer()
-            WheelView(userInput: self.userInputReceived(_:))
-                .padding(60)
+        iPodChassisView(userInput: self.userInputReceived) {
+            VStack {
+                Text("\(value)")
+                    .padding()
+                Text("Last event: \(lastEvent)")
+                    .padding()
+                    .lineLimit(1)
+            }
         }
     }
     
