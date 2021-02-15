@@ -19,6 +19,9 @@
 		BA8A6EFD25D9ECAE00794D74 /* Angle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */; };
 		BA8A6F0125DAEF6F00794D74 /* iPodChassisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */; };
 		BA8A6F0925DAF56F00794D74 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */; };
+		BA8A6F0D25DAF98F00794D74 /* ScreenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0C25DAF98F00794D74 /* ScreenContent.swift */; };
+		BA8A6F1025DAF9C100794D74 /* MenuContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0F25DAF9C100794D74 /* MenuContent.swift */; };
+		BA8A6F1725DAFA4D00794D74 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F1625DAFA4D00794D74 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+Extensions.swift"; sourceTree = "<group>"; };
 		BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPodChassisView.swift; sourceTree = "<group>"; };
 		BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		BA8A6F0C25DAF98F00794D74 /* ScreenContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenContent.swift; sourceTree = "<group>"; };
+		BA8A6F0F25DAF9C100794D74 /* MenuContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContent.swift; sourceTree = "<group>"; };
+		BA8A6F1625DAFA4D00794D74 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 				BA8A6EDD25D9A00500794D74 /* WheelView.swift */,
 				BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */,
 				BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */,
+				BA8A6F1625DAFA4D00794D74 /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				BA8A6EE025D9B51000794D74 /* MCircle.swift */,
+				BA8A6F0C25DAF98F00794D74 /* ScreenContent.swift */,
+				BA8A6F0F25DAF9C100794D74 /* MenuContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,9 +207,12 @@
 				BA8A6EEC25D9B58600794D74 /* CGRect+Extensions.swift in Sources */,
 				BA8A6ECE25D99DDC00794D74 /* iPodApp.swift in Sources */,
 				BA8A6F0125DAEF6F00794D74 /* iPodChassisView.swift in Sources */,
+				BA8A6F1025DAF9C100794D74 /* MenuContent.swift in Sources */,
 				BA8A6EFD25D9ECAE00794D74 /* Angle+Extensions.swift in Sources */,
 				BA8A6EE925D9B56600794D74 /* PointShape.swift in Sources */,
+				BA8A6F1725DAFA4D00794D74 /* MenuView.swift in Sources */,
 				BA8A6EDE25D9A00500794D74 /* WheelView.swift in Sources */,
+				BA8A6F0D25DAF98F00794D74 /* ScreenContent.swift in Sources */,
 				BA8A6EF525D9D00700794D74 /* WedgeShape.swift in Sources */,
 				BA8A6EE125D9B51000794D74 /* MCircle.swift in Sources */,
 				BA8A6F0925DAF56F00794D74 /* MenuBarView.swift in Sources */,

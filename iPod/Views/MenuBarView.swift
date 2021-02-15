@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MenuBarView: View {
+    
+    let title: String
+    
     var body: some View {
         HStack {
             let gradient = LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .top, endPoint: .bottom)
@@ -17,18 +20,19 @@ struct MenuBarView: View {
                     gradient .mask(playIcon.scaledToFill())
                 )
             Spacer()
-            Text("iPod")
+            Text(title)
         }
         .padding(8)
         .background(
             LinearGradient(gradient: Gradient(colors: [.white, .init(white: 0.7)]), startPoint: .top, endPoint: .bottom)
         )
+        .foregroundColor(.black)
     }
 }
 
 struct MenuBarView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuBarView()
+        MenuBarView(title: "iPod")
             .previewLayout(.sizeThatFits)
             .padding()
     }

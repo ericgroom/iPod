@@ -27,10 +27,11 @@ struct iPodChassisView<Content: View>: View {
                         .foregroundColor(Color(white: 0.95))
                     screenContent()
                         .clipShape(screenShape)
-                }.padding()
+                }
+                .aspectRatio(1.0, contentMode: .fit)
                 Spacer()
                 WheelView(userInput: self.userInput)
-                    .padding(40)
+                    .padding(30)
             }
             .padding()
         }

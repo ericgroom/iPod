@@ -10,16 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @State var value: Int = 0
     @State var lastEvent: String = "none"
+    @State var content = ScreenContent<MenuContent>(title: "iPod", content: MenuContent.default)
     
     var body: some View {
         iPodChassisView(userInput: self.userInputReceived) {
-            VStack {
-                MenuBarView()
+            VStack(spacing: 0.0) {
+                MenuBarView(title: content.title)
+                MenuView(selection: menuSelection, content: content.content)
                 Spacer()
-                Text("\(value)")
-                    .padding()
                 Text("Last event: \(lastEvent)")
-                    .padding()
+                    .foregroundColor(.black)
                     .lineLimit(1)
             }
         }
@@ -44,6 +44,15 @@ struct ContentView: View {
         case .back, .menu, .pause, .skip:
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred(intensity: 1.0)
         }
+        if value <= 0 {
+            value = 0
+        } else if value >= content.content.items.count-1 {
+            value = content.content.items.count-1
+        }
+    }
+    
+    var menuSelection: MenuContent.Item {
+        content.content.items[value]
     }
 }
 
