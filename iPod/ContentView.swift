@@ -41,7 +41,7 @@ struct ContentView: View {
             value = 0
             fallthrough
         case .back, .menu, .pause, .skip:
-            UIImpactFeedbackGenerator().impactOccurred()
+            UIImpactFeedbackGenerator(style: .heavy).impactOccurred(intensity: 1.0)
         }
     }
 }
