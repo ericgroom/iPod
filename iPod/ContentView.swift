@@ -35,10 +35,12 @@ struct ContentView: View {
                 increment = -1
             }
             value += increment
+            UISelectionFeedbackGenerator().selectionChanged()
         case .centerButton:
             value = 0
-        default:
-            break
+            fallthrough
+        case .back, .menu, .pause, .skip:
+            UIImpactFeedbackGenerator().impactOccurred()
         }
     }
 }
