@@ -14,6 +14,8 @@ struct ContentView: View {
     var body: some View {
         iPodChassisView(userInput: self.userInputReceived) {
             VStack {
+                MenuBarView()
+                Spacer()
                 Text("\(value)")
                     .padding()
                 Text("Last event: \(lastEvent)")

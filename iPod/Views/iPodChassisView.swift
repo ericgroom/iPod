@@ -22,9 +22,11 @@ struct iPodChassisView<Content: View>: View {
                 .ignoresSafeArea()
             VStack {
                 ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    let screenShape = RoundedRectangle(cornerRadius: 8.0)
+                    screenShape
                         .foregroundColor(Color(white: 0.95))
                     screenContent()
+                        .clipShape(screenShape)
                 }.padding()
                 Spacer()
                 WheelView(userInput: self.userInput)
