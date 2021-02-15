@@ -66,15 +66,11 @@
 		BA8A6ECC25D99DDC00794D74 /* iPod */ = {
 			isa = PBXGroup;
 			children = (
+				BA8A6F0725DAF4E000794D74 /* Model */,
+				BA8A6F0625DAF4DB00794D74 /* Extensions */,
+				BA8A6F0525DAF4D600794D74 /* Views */,
+				BA8A6F0425DAF4CB00794D74 /* Shapes */,
 				BA8A6ECD25D99DDC00794D74 /* iPodApp.swift */,
-				BA8A6ECF25D99DDC00794D74 /* ContentView.swift */,
-				BA8A6EDD25D9A00500794D74 /* WheelView.swift */,
-				BA8A6EE025D9B51000794D74 /* MCircle.swift */,
-				BA8A6EE825D9B56600794D74 /* PointShape.swift */,
-				BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */,
-				BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */,
-				BA8A6EF425D9D00700794D74 /* WedgeShape.swift */,
-				BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */,
 				BA8A6ED125D99DDC00794D74 /* Assets.xcassets */,
 				BA8A6ED625D99DDC00794D74 /* Info.plist */,
 				BA8A6ED325D99DDC00794D74 /* Preview Content */,
@@ -88,6 +84,42 @@
 				BA8A6ED425D99DDC00794D74 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BA8A6F0425DAF4CB00794D74 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				BA8A6EE825D9B56600794D74 /* PointShape.swift */,
+				BA8A6EF425D9D00700794D74 /* WedgeShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		BA8A6F0525DAF4D600794D74 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA8A6ECF25D99DDC00794D74 /* ContentView.swift */,
+				BA8A6EDD25D9A00500794D74 /* WheelView.swift */,
+				BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA8A6F0625DAF4DB00794D74 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */,
+				BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA8A6F0725DAF4E000794D74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA8A6EE025D9B51000794D74 /* MCircle.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
