@@ -21,19 +21,32 @@ struct iPodChassisView<Content: View>: View {
             RadialGradient(gradient: gradient, center: .top, startRadius: 50, endRadius: 1000)
                 .ignoresSafeArea()
             VStack {
-                ZStack {
-                    let screenShape = RoundedRectangle(cornerRadius: 8.0)
-                    screenShape
-                        .foregroundColor(Color(white: 0.95))
-                    screenContent()
-                        .clipShape(screenShape)
-                }
-                .aspectRatio(1.0, contentMode: .fit)
+                ScreenView(screenContent: screenContent)
                 Spacer()
                 WheelView(userInput: self.userInput)
                     .padding(30)
             }
             .padding()
+        }
+    }
+}
+
+struct ScreenView<Content: View>: View {
+    
+    let screenContent: () -> Content
+    
+    var body: some View {
+        let screenShape = RoundedRectangle(cornerRadius: 8.0)
+        
+        ZStack {
+            Color.black
+                .clipShape(screenShape)
+            ZStack {
+                screenShape
+                    .foregroundColor(Color(white: 0.95))
+                screenContent()
+                    .clipShape(screenShape)
+            }.padding(4)
         }
     }
 }
