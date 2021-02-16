@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State var value: Int = 0
-    @State var lastEvent: String = "none"
     @State var content = ScreenContent<MenuContent>(title: "iPod", content: MenuContent.long)
     
     var body: some View {
@@ -17,16 +16,11 @@ struct ContentView: View {
             VStack(spacing: 0.0) {
                 MenuBarView(title: content.title)
                 MenuView(selection: menuSelection, content: content.content)
-                Spacer()
-                Text("Last event: \(lastEvent)")
-                    .foregroundColor(.black)
-                    .lineLimit(1)
             }
         }
     }
     
     func userInputReceived(_ userInput: WheelView.UserInput) {
-        lastEvent = "\(userInput)"
         switch userInput {
         case .drag(let direction):
             let increment: Int
