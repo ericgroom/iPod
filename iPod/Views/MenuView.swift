@@ -23,7 +23,7 @@ struct MenuView: View {
                     proxy.scrollTo(value)
                 })
             }
-        }
+        }.disabled(true)
     }
 }
 
