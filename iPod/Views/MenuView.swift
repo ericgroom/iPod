@@ -13,10 +13,15 @@ struct MenuView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 0.0) {
-                ForEach(content.items, id: \.self) { item in
-                    MenuItemView(title: item, isSelected: item == selection)
+            ScrollViewReader { proxy in
+                VStack(alignment: .leading, spacing: 0.0) {
+                    ForEach(content.items, id: \.self) { item in
+                        MenuItemView(title: item, isSelected: item == selection)
+                    }
                 }
+                .onChange(of: selection, perform: { value in
+                    proxy.scrollTo(value)
+                })
             }
         }
     }
