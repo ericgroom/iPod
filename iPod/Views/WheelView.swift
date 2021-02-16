@@ -38,7 +38,6 @@ struct WheelView: View {
     enum DragDirection { case clockwise, counterClockwise }
     
     let userInput: (UserInput) -> ()
-    let thickness: CGFloat = 80
     private let angleForTick = Angle(radians: Double.pi/8)
     @State private var startPoint: CGPoint?
 
@@ -54,6 +53,7 @@ struct WheelView: View {
                 .onEnded { dragValue in
                     dragEnded(dragValue)
                 }
+            let thickness = self.thickness(for: geometry)
             
             ZStack {
                 WheelShape(thickness: thickness)
@@ -111,11 +111,13 @@ struct WheelView: View {
     private func circle(for geometry: GeometryProxy) -> MCircle {
         let frame = geometry.frame(in: .local)
         let squaredFrame = frame.squareRect
+        let thickness = self.thickness(for: geometry)
         return MCircle(center: squaredFrame.center, radius: (squaredFrame.width / 2) - (thickness / 2))
     }
     
     private func circleButton(for geometry: GeometryProxy) -> some View {
         let squareRect = geometry.frame(in: .local).squareRect
+        let thickness = self.thickness(for: geometry)
         let inset = squareRect.insetBy(dx: thickness, dy: thickness)
         
         return Button(action: { userInput(.centerButton) }, label: {
@@ -123,6 +125,11 @@ struct WheelView: View {
                 .frame(width: inset.width, height: inset.height, alignment: .center)
                 .clipShape(Circle())
         })
+    }
+    
+    private func thickness(for geometry: GeometryProxy) -> CGFloat {
+        let circleFrame = geometry.frame(in: .local).squareRect
+        return circleFrame.width / 3
     }
 }
 
@@ -226,6 +233,11 @@ struct WedgeButton<Content: View>: View {
 
 struct WheelView_Previews: PreviewProvider {
     static var previews: some View {
-        WheelView(userInput: { _ in })
+        ZStack {
+            Color.gray
+                .ignoresSafeArea()
+            WheelView(userInput: { _ in })
+                .padding()
+        }
     }
 }
