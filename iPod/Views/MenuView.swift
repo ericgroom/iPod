@@ -12,7 +12,7 @@ struct MenuView: View {
     let content: MenuContent
     
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical, showsIndicators: false) {
             ScrollViewReader { proxy in
                 VStack(alignment: .leading, spacing: 0.0) {
                     ForEach(content.items, id: \.self) { item in
