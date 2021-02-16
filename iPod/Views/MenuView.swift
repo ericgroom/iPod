@@ -12,9 +12,11 @@ struct MenuView: View {
     let content: MenuContent
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0.0) {
-            ForEach(content.items, id: \.self) { item in
-                MenuItemView(title: item, isSelected: item == selection)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0.0) {
+                ForEach(content.items, id: \.self) { item in
+                    MenuItemView(title: item, isSelected: item == selection)
+                }
             }
         }
     }

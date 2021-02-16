@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var value: Int = 0
     @State var lastEvent: String = "none"
-    @State var content = ScreenContent<MenuContent>(title: "iPod", content: MenuContent.default)
+    @State var content = ScreenContent<MenuContent>(title: "iPod", content: MenuContent.long)
     
     var body: some View {
         iPodChassisView(userInput: self.userInputReceived) {

@@ -21,4 +21,6 @@ struct MenuContent {
         "Shuffle Songs",
         "Now Playing"
     ])
+    
+    static let `long` = MenuContent(items: "abcdefghijklmnopqrstuvwxyz".map { String($0) })
 }
