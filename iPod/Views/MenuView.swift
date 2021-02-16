@@ -50,8 +50,8 @@ struct MenuItemView: View {
     private var selectedBackground: LinearGradient {
         LinearGradient(
             gradient: Gradient(colors: [
-                Color(red: 81.0/255.0, green: 185.0/255.0, blue: 255.0/255.0),
-                .blue
+                Color("selectionSecondary"),
+                Color("selectionPrimary")
             ]),
             startPoint: .top,
             endPoint: .bottom

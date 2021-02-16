@@ -121,7 +121,7 @@ struct WheelView: View {
         let inset = squareRect.insetBy(dx: thickness, dy: thickness)
         
         return Button(action: { userInput(.centerButton) }, label: {
-            Color(red: 141.0 / 255.0, green: 217.0 / 255.0, blue: 196.0 / 255.0)
+            Color("chassisPrimary")
                 .frame(width: inset.width, height: inset.height, alignment: .center)
                 .clipShape(Circle())
         })
@@ -151,7 +151,7 @@ struct WedgeButton<Content: View>: View {
                 }
                 content()
                     .offset(edge.offset)
-                    .foregroundColor(Color(red: 141.0 / 255.0, green: 217.0 / 255.0, blue: 196.0 / 255.0))
+                    .foregroundColor(Color("chassisPrimary"))
             }
         })
         .contentShape(wedge)
