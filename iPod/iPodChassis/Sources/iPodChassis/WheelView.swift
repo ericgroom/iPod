@@ -7,35 +7,28 @@
 
 import SwiftUI
 
-/// Won't work properly if not displayed with a square aspect ratio
-struct WheelShape: Shape {
-    let thickness: CGFloat
-    
-    init(thickness: CGFloat) {
-        self.thickness = thickness
-    }
-    
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            path.addArc(center: rect.center, radius: rect.width / 2, startAngle: .zero, endAngle: .radians(2*Double.pi), clockwise: true)
-            
-            let innerRect = rect.insetBy(dx: thickness, dy: thickness)
-            path.addEllipse(in: innerRect)
-        }
-    }
-}
+public struct WheelView: View {
 
-struct WheelView: View {
+    public let userInput: (ClickWheelInput) -> ()
     
-    let userInput: (ClickWheelInput) -> ()
+    public init(userInput: @escaping (ClickWheelInput) -> ()) {
+        self.userInput = userInput
+    }
+
     private let angleForTick = Angle(radians: Double.pi/8)
     @State private var startPoint: CGPoint?
 
     private let wheelCoordSpace = "wheelSpace"
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
-            
+            /*
+             Mild hack to get dragging on the wheel and clicking buttons working simultaneously:
+             You can think of it working conceptually as 4 wedge shaped buttons that form a circle
+             and a ring that lays underneath them which accept drag events. Now that doesn't actually work,
+             since a view behind a button won't receive touch events, so instead each wedge button gets
+             a drag gesture in the coordinate space of a wheel.
+             */
             let drag = DragGesture(minimumDistance: 5.0, coordinateSpace: .named(wheelCoordSpace))
                 .onChanged { dragValue in
                     dragUpdated(geometry: geometry, dragValue: dragValue)
@@ -46,6 +39,8 @@ struct WheelView: View {
             let thickness = self.thickness(for: geometry)
             
             ZStack {
+                // WheelShape is not actually displayed as it is covered by WedgeButtons, however it serves
+                // as a coordinate space and represents the overall shape of the WedgeButtons
                 WheelShape(thickness: thickness)
                     .coordinateSpace(name: wheelCoordSpace)
                 WedgeButton(edge: .top, thickness: thickness, action: { userInput(.menu) }) {
@@ -120,104 +115,6 @@ struct WheelView: View {
     private func thickness(for geometry: GeometryProxy) -> CGFloat {
         let circleFrame = geometry.frame(in: .local).squareRect
         return circleFrame.width / 3
-    }
-}
-
-struct WedgeButton<Content: View>: View {
-    let edge: Edge
-    let thickness: CGFloat
-    let action: () -> Void
-    let content: () -> Content
-    private let debug = false
-    
-    var body: some View {
-        Button(action: self.action, label: {
-            ZStack(alignment: edge.alignment) {
-                if debug {
-                    wedge
-                        .foregroundColor(edge.debugColor)
-                } else {
-                    wedge
-                }
-                content()
-                    .offset(edge.offset)
-                    .foregroundColor(Color("chassisPrimary"))
-            }
-        })
-        .contentShape(wedge)
-    }
-    
-    private var wedge: some Shape {
-        WedgeShape(startAngle: edge.startAngle, endAngle: edge.endAngle, thickness: thickness, clockwise: false)
-    }
-    
-    enum Edge {
-        case top, left, right, bottom
-        
-        var debugColor: Color {
-            switch self {
-            case .top:
-                return .red
-            case .right:
-                return .green
-            case .bottom:
-                return .blue
-            case .left:
-                return .yellow
-            }
-        }
-        
-        var startAngle: Angle {
-            switch self {
-            case .top:
-                return Angle.zero - Angle.eighth
-            case .right:
-                return Angle.zero + Angle.eighth
-            case .bottom:
-                return -Angle.half - Angle.eighth
-            case .left:
-                return -Angle.half + Angle.eighth
-            }
-        }
-        
-        var endAngle: Angle {
-            switch self {
-            case .top:
-                return -Angle.half + Angle.eighth
-            case .right:
-                return Angle.zero - Angle.eighth
-            case .bottom:
-                return Angle.zero + Angle.eighth
-            case .left:
-                return -Angle.half - Angle.eighth
-            }
-        }
-        
-        var offset: CGSize {
-            switch self {
-            case .top:
-                return CGSize(width: 0, height: 10)
-            case .right:
-                return CGSize(width: -10, height: 0)
-            case .bottom:
-                return CGSize(width: 0, height: -10)
-            case .left:
-                return CGSize(width: 10, height: 0)
-            }
-        }
-        
-        var alignment: Alignment {
-            switch self {
-            case .top:
-                return .top
-            case .right:
-                return .trailing
-            case .bottom:
-                return .bottom
-            case .left:
-                return .leading
-            }
-        }
     }
 }
 
