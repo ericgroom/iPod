@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct iPodChassisView<Content: View>: View {
+public struct iPodChassisView<Content: View>: View {
+
+    public let userInput: (ClickWheelInput) -> ()
+    public let screenContent: () -> Content
     
-    let userInput: (WheelView.UserInput) -> ()
-    let screenContent: () -> Content
+    public init(userInput: @escaping (ClickWheelInput) -> (), screenContent: @escaping () -> Content) {
+        self.userInput = userInput
+        self.screenContent = screenContent
+    }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             let gradient = Gradient(colors: [
                 Color("chassisPrimary"),

@@ -27,17 +27,7 @@ struct WheelShape: Shape {
 
 struct WheelView: View {
     
-    enum UserInput {
-        case menu
-        case pause
-        case skip
-        case back
-        case centerButton
-        case drag(DragDirection)
-    }
-    enum DragDirection { case clockwise, counterClockwise }
-    
-    let userInput: (UserInput) -> ()
+    let userInput: (ClickWheelInput) -> ()
     private let angleForTick = Angle(radians: Double.pi/8)
     @State private var startPoint: CGPoint?
 

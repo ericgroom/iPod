@@ -3,21 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA3E1FFC25E1843900B01D02 /* iPodChassis in Frameworks */ = {isa = PBXBuildFile; productRef = BA3E1FFB25E1843900B01D02 /* iPodChassis */; };
 		BA8A6ECE25D99DDC00794D74 /* iPodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6ECD25D99DDC00794D74 /* iPodApp.swift */; };
 		BA8A6ED025D99DDC00794D74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6ECF25D99DDC00794D74 /* ContentView.swift */; };
 		BA8A6ED225D99DDC00794D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8A6ED125D99DDC00794D74 /* Assets.xcassets */; };
 		BA8A6ED525D99DDC00794D74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA8A6ED425D99DDC00794D74 /* Preview Assets.xcassets */; };
-		BA8A6EDE25D9A00500794D74 /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EDD25D9A00500794D74 /* WheelView.swift */; };
-		BA8A6EE125D9B51000794D74 /* MCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EE025D9B51000794D74 /* MCircle.swift */; };
-		BA8A6EE925D9B56600794D74 /* PointShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EE825D9B56600794D74 /* PointShape.swift */; };
-		BA8A6EEC25D9B58600794D74 /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */; };
-		BA8A6EF525D9D00700794D74 /* WedgeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EF425D9D00700794D74 /* WedgeShape.swift */; };
-		BA8A6EFD25D9ECAE00794D74 /* Angle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */; };
-		BA8A6F0125DAEF6F00794D74 /* iPodChassisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */; };
 		BA8A6F0925DAF56F00794D74 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */; };
 		BA8A6F0D25DAF98F00794D74 /* ScreenContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0C25DAF98F00794D74 /* ScreenContent.swift */; };
 		BA8A6F1025DAF9C100794D74 /* MenuContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8A6F0F25DAF9C100794D74 /* MenuContent.swift */; };
@@ -25,19 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA3E1FF825E183E400B01D02 /* iPodChassis */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iPodChassis; path = iPod/iPodChassis; sourceTree = "<group>"; };
 		BA8A6ECA25D99DDC00794D74 /* iPod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8A6ECD25D99DDC00794D74 /* iPodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPodApp.swift; sourceTree = "<group>"; };
 		BA8A6ECF25D99DDC00794D74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BA8A6ED125D99DDC00794D74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA8A6ED425D99DDC00794D74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA8A6ED625D99DDC00794D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA8A6EDD25D9A00500794D74 /* WheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelView.swift; sourceTree = "<group>"; };
-		BA8A6EE025D9B51000794D74 /* MCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCircle.swift; sourceTree = "<group>"; };
-		BA8A6EE825D9B56600794D74 /* PointShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointShape.swift; sourceTree = "<group>"; };
-		BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
-		BA8A6EF425D9D00700794D74 /* WedgeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WedgeShape.swift; sourceTree = "<group>"; };
-		BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+Extensions.swift"; sourceTree = "<group>"; };
-		BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPodChassisView.swift; sourceTree = "<group>"; };
 		BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		BA8A6F0C25DAF98F00794D74 /* ScreenContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenContent.swift; sourceTree = "<group>"; };
 		BA8A6F0F25DAF9C100794D74 /* MenuContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContent.swift; sourceTree = "<group>"; };
@@ -49,17 +37,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3E1FFC25E1843900B01D02 /* iPodChassis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA3E1FFA25E1843900B01D02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA8A6EC125D99DDC00794D74 = {
 			isa = PBXGroup;
 			children = (
+				BA3E1FF825E183E400B01D02 /* iPodChassis */,
 				BA8A6ECC25D99DDC00794D74 /* iPod */,
 				BA8A6ECB25D99DDC00794D74 /* Products */,
+				BA3E1FFA25E1843900B01D02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,9 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				BA8A6F0725DAF4E000794D74 /* Model */,
-				BA8A6F0625DAF4DB00794D74 /* Extensions */,
 				BA8A6F0525DAF4D600794D74 /* Views */,
-				BA8A6F0425DAF4CB00794D74 /* Shapes */,
 				BA8A6ECD25D99DDC00794D74 /* iPodApp.swift */,
 				BA8A6ED125D99DDC00794D74 /* Assets.xcassets */,
 				BA8A6ED625D99DDC00794D74 /* Info.plist */,
@@ -94,40 +90,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BA8A6F0425DAF4CB00794D74 /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				BA8A6EE825D9B56600794D74 /* PointShape.swift */,
-				BA8A6EF425D9D00700794D74 /* WedgeShape.swift */,
-			);
-			path = Shapes;
-			sourceTree = "<group>";
-		};
 		BA8A6F0525DAF4D600794D74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				BA8A6ECF25D99DDC00794D74 /* ContentView.swift */,
-				BA8A6EDD25D9A00500794D74 /* WheelView.swift */,
-				BA8A6F0025DAEF6F00794D74 /* iPodChassisView.swift */,
 				BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */,
 				BA8A6F1625DAFA4D00794D74 /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		BA8A6F0625DAF4DB00794D74 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				BA8A6EFC25D9ECAE00794D74 /* Angle+Extensions.swift */,
-				BA8A6EEB25D9B58600794D74 /* CGRect+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		BA8A6F0725DAF4E000794D74 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BA8A6EE025D9B51000794D74 /* MCircle.swift */,
 				BA8A6F0C25DAF98F00794D74 /* ScreenContent.swift */,
 				BA8A6F0F25DAF9C100794D74 /* MenuContent.swift */,
 			);
@@ -150,6 +125,9 @@
 			dependencies = (
 			);
 			name = iPod;
+			packageProductDependencies = (
+				BA3E1FFB25E1843900B01D02 /* iPodChassis */,
+			);
 			productName = iPod;
 			productReference = BA8A6ECA25D99DDC00794D74 /* iPod.app */;
 			productType = "com.apple.product-type.application";
@@ -204,17 +182,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8A6ED025D99DDC00794D74 /* ContentView.swift in Sources */,
-				BA8A6EEC25D9B58600794D74 /* CGRect+Extensions.swift in Sources */,
 				BA8A6ECE25D99DDC00794D74 /* iPodApp.swift in Sources */,
-				BA8A6F0125DAEF6F00794D74 /* iPodChassisView.swift in Sources */,
 				BA8A6F1025DAF9C100794D74 /* MenuContent.swift in Sources */,
-				BA8A6EFD25D9ECAE00794D74 /* Angle+Extensions.swift in Sources */,
-				BA8A6EE925D9B56600794D74 /* PointShape.swift in Sources */,
 				BA8A6F1725DAFA4D00794D74 /* MenuView.swift in Sources */,
-				BA8A6EDE25D9A00500794D74 /* WheelView.swift in Sources */,
 				BA8A6F0D25DAF98F00794D74 /* ScreenContent.swift in Sources */,
-				BA8A6EF525D9D00700794D74 /* WedgeShape.swift in Sources */,
-				BA8A6EE125D9B51000794D74 /* MCircle.swift in Sources */,
 				BA8A6F0925DAF56F00794D74 /* MenuBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +375,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BA3E1FFB25E1843900B01D02 /* iPodChassis */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = iPodChassis;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA8A6EC225D99DDC00794D74 /* Project object */;
 }

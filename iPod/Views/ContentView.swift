@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iPodChassis
 
 struct ContentView: View {
     @State var value: Int = 0
@@ -20,7 +21,7 @@ struct ContentView: View {
         }
     }
     
-    func userInputReceived(_ userInput: WheelView.UserInput) {
+    func userInputReceived(_ userInput: ClickWheelInput) {
         switch userInput {
         case .drag(let direction):
             let increment: Int
