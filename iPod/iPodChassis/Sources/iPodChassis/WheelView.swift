@@ -44,20 +44,19 @@ public struct WheelView: View {
                 WheelShape(thickness: thickness)
                     .coordinateSpace(name: wheelCoordSpace)
                 WedgeButton(edge: .top, thickness: thickness, action: { userInput(.menu) }) {
-                    Text("Menu")
-                        .font(Font.system(size: 18, weight: .bold, design: .default).smallCaps())
+                    MenuGlyph()
                 }
                     .highPriorityGesture(drag)
                 WedgeButton(edge: .right, thickness: thickness, action: { userInput(.skip) }) {
-                    Image(systemName: "forward.end.alt.fill")
+                    SkipGlyph()
                 }
                     .highPriorityGesture(drag)
                 WedgeButton(edge: .bottom, thickness: thickness, action: { userInput(.pause) }) {
-                    Image(systemName: "playpause.fill")
+                    PlayPauseGlyph()
                 }
                     .highPriorityGesture(drag)
                 WedgeButton(edge: .left, thickness: thickness, action: { userInput(.back) }) {
-                    Image(systemName: "backward.end.alt.fill")
+                    BackGlyph()
                 }
                     .highPriorityGesture(drag)
                 circleButton(for: geometry)
