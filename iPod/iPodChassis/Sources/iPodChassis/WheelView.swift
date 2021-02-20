@@ -106,7 +106,7 @@ public struct WheelView: View {
         let inset = squareRect.insetBy(dx: thickness, dy: thickness)
         
         return Button(action: { userInput(.centerButton) }, label: {
-            Color("chassisPrimary")
+            Color("chassisPrimary", bundle: .module)
                 .frame(width: inset.width, height: inset.height, alignment: .center)
                 .clipShape(Circle())
         })

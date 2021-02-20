@@ -25,7 +25,7 @@ struct WedgeButton<Content: View>: View {
                 }
                 content()
                     .offset(edge.offset)
-                    .foregroundColor(Color("chassisPrimary"))
+                    .foregroundColor(Color("chassisPrimary", bundle: .module))
             }
         })
         .contentShape(wedge)

@@ -20,8 +20,8 @@ public struct iPodChassisView<Content: View>: View {
     public var body: some View {
         ZStack {
             let gradient = Gradient(colors: [
-                Color("chassisPrimary"),
-                Color("chassisSecondary")
+                Color("chassisPrimary", bundle: .module),
+                Color("chassisSecondary", bundle: .module)
             ])
             RadialGradient(gradient: gradient, center: .top, startRadius: 50, endRadius: 1000)
                 .ignoresSafeArea()
