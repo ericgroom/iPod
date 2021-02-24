@@ -15,7 +15,8 @@ struct ReflectionModifier: ViewModifier {
         Gradient(
             stops: [
                 .init(color: Color.white.opacity(0.6), location: 0.0),
-                .init(color: .clear, location: reflectionHeightRatio)
+                .init(color: .clear, location: reflectionHeightRatio),
+                .init(color: .clear, location: 1.0)
             ]
         )
     }

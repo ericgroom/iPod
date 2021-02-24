@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0AB5CE25E1EAE300F68067 /* ProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0AB5CD25E1EAE300F68067 /* ProgressViewStyle.swift */; };
+		BA0AB5D525E1F03800F68067 /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0AB5D425E1F03800F68067 /* NowPlayingView.swift */; };
 		BA3E1FFC25E1843900B01D02 /* iPodChassis in Frameworks */ = {isa = PBXBuildFile; productRef = BA3E1FFB25E1843900B01D02 /* iPodChassis */; };
 		BA3E200725E1B45200B01D02 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E200625E1B45200B01D02 /* AlbumView.swift */; };
 		BA3E200B25E1C53F00B01D02 /* ReflectionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E200A25E1C53F00B01D02 /* ReflectionModifier.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA0AB5CD25E1EAE300F68067 /* ProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewStyle.swift; sourceTree = "<group>"; };
+		BA0AB5D425E1F03800F68067 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
 		BA3E1FF825E183E400B01D02 /* iPodChassis */ = {isa = PBXFileReference; lastKnownFileType = folder; name = iPodChassis; path = iPod/iPodChassis; sourceTree = "<group>"; };
 		BA3E200625E1B45200B01D02 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		BA3E200A25E1C53F00B01D02 /* ReflectionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionModifier.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				BA8A6F0825DAF56F00794D74 /* MenuBarView.swift */,
 				BA8A6F1625DAFA4D00794D74 /* MenuView.swift */,
 				BA3E200625E1B45200B01D02 /* AlbumView.swift */,
+				BA0AB5CD25E1EAE300F68067 /* ProgressViewStyle.swift */,
+				BA0AB5D425E1F03800F68067 /* NowPlayingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +205,8 @@
 				BA8A6ECE25D99DDC00794D74 /* iPodApp.swift in Sources */,
 				BA8A6F1025DAF9C100794D74 /* MenuContent.swift in Sources */,
 				BA3E200725E1B45200B01D02 /* AlbumView.swift in Sources */,
+				BA0AB5D525E1F03800F68067 /* NowPlayingView.swift in Sources */,
+				BA0AB5CE25E1EAE300F68067 /* ProgressViewStyle.swift in Sources */,
 				BA8A6F1725DAFA4D00794D74 /* MenuView.swift in Sources */,
 				BA3E200B25E1C53F00B01D02 /* ReflectionModifier.swift in Sources */,
 				BA8A6F0D25DAF98F00794D74 /* ScreenContent.swift in Sources */,
