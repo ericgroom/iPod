@@ -61,7 +61,8 @@ struct NowPlayingView: View {
                     Text(playbackInfo.artist)
                     Text(playbackInfo.album.name)
                 }
-            }
+            }.padding()
+            Spacer()
             HStack {
                 Text(playbackInfo.playbackProgress.lengthPlayedFormatted)
                 ProgressView(value: playbackInfo.playbackProgress.percentageComplete)

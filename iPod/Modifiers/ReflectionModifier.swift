@@ -22,32 +22,34 @@ struct ReflectionModifier: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        GeometryReader { proxy in
-            VStack(spacing: 0.0) {
-                content
-
-                let reflectionSize = self.reflectionSize(for: proxy)
-                content
-                    .rotationEffect(.radians(Double.pi))
-                    .mask(
-                        LinearGradient(
-                            gradient: maskGradient,
-                            startPoint: .top,
-                            endPoint: .bottom
+        content
+            .overlay(
+                GeometryReader { proxy in
+                    let reflectionSize = self.reflectionSize(for: proxy)
+                    content
+                        .rotationEffect(.radians(Double.pi))
+                        .mask(
+                            LinearGradient(
+                                gradient: maskGradient,
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
                         )
-                    )
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: reflectionSize.width, height: reflectionSize.height, alignment: .top)
-                    .clipped()
-                Spacer()
-            }
-        }
+                        .aspectRatio(contentMode: .fill)
+                        .offset(reflectionOffset(for: proxy))
+                        .frame(width: reflectionSize.width, height: reflectionSize.height, alignment: .top)
+                }
+            )
+    }
+    
+    private func reflectionOffset(for proxy: GeometryProxy) -> CGSize {
+        let frame = proxy.frame(in: .local)
+        return CGSize(width: 0, height: frame.height)
     }
     
     private func reflectionSize(for proxy: GeometryProxy) -> CGSize {
         let frame = proxy.frame(in: .local)
-        let halfHeight = frame.height / 2
-        let actualHeight = halfHeight * reflectionHeightRatio
+        let actualHeight = frame.height * reflectionHeightRatio
         return CGSize(width: frame.width, height: actualHeight)
     }
 }
