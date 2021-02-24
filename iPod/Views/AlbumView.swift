@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct AlbumView: View {
+    
+    let image: Image
+    
     var body: some View {
-        Image("worlds")
+        image
             .resizable()
             .aspectRatio(1.0, contentMode: .fit)
             .reflection(reflectionHeightRatio: 0.5)
@@ -28,7 +31,7 @@ struct AlbumView: View {
 
 struct AlbumView_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumView()
+        AlbumView(image: Image("worlds"))
             .padding()
     }
 }
